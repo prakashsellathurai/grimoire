@@ -1,8 +1,8 @@
 # Grimoire
 
-This repository serves as a collection of my competition scripts and a scratchbook for learning new things.
+This repository serves as a collection of my magic spells and a scratchbook.
 
 ## Structure
 
-- `competition_scripts/`: Stores scripts used in various competitions.
+- `spells/`: Stores scripts used in various competitions.and personal projects.
 - `scratchbook/`: A place for notes and experiments while learning.
