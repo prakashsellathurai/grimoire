@@ -1,0 +1,27 @@
+function downloadAttachmentsWithSearch() {
+  var folderName = "Attachments"; // Specify the name of the folder in Google Drive where the attachments will be saved
+  var folder = DriveApp.createFolder(folderName);
+  
+  var searchQuery = "subject:(E-account statement for your SBI account(s)) E-account statement for your SBI account(s)"; // Specify your search query here
+  
+  var threads = GmailApp.search(searchQuery); // Get threads matching the search query
+  
+  for (var i = 0; i < threads.length; i++) {
+    var messages = threads[i].getMessages(); // Get all messages in the thread
+    
+    for (var j = 0; j < messages.length; j++) {
+      var attachments = messages[j].getAttachments(); // Get all attachments in the message
+      
+      for (var k = 0; k < attachments.length; k++) {
+        var attachment = attachments[k];
+        var fileName = attachment.getName();
+        
+        attachment.copyBlob().setContentTypeFromExtension(); // Copy attachment as Blob
+        
+        folder.createFile(attachment); // Save attachment to the specified folder in Google Drive
+        
+        Logger.log("Attachment '" + fileName + "' saved to Google Drive");
+      }
+    }
+  }
+}
