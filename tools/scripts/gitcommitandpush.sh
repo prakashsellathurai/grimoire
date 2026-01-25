@@ -1,6 +1,7 @@
 #!/bin/bash
-
+commitMessage="Backup Daemon: Auto commit on `date +%Y%m%d%H%M%S`";
+git submodule foreach --recursive "git add ."
+git submodule foreach "echo 'Committing changes.'; git commit -a -q -m '${commitMessage}' || :"
 git add .
-commitMessage="Auto commit on `date +%Y%m%d%H%M%S`";
 git commit -m "$commitMessage"
-git push origin main
+git push origin main --recurse-submodules=on-demand
