@@ -1,0 +1,3 @@
+Generating 6442450944 bytes (6.00GB) into file=dna.txt
+Done: DNA_SEQUENCE_FILE(filename='file=dna.txt', filesize=6442450944)
+Inserting 1009 random bases into file=dna.txt

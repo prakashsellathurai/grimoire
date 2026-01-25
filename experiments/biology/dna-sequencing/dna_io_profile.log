@@ -1,0 +1,14 @@
+Running I/O profile in C:\Users\Prakash\Documents\jobsearch\grimoire\experiments\biology\dna-sequencing\profile_tmp with ~5000000 bytes
+Directory 'C:\Users\Prakash\Documents\jobsearch\grimoire\experiments\biology\dna-sequencing\profile_tmp' and all its contents have been removed.
+
+Results
+- binary_write: 0.004s, peak_mem=0.008 MiB
+- gzip_write: 0.016s, peak_mem=0.332 MiB
+- chunked_read: 0.001s, peak_mem=2.009 MiB
+- binary_read: 0.011s, peak_mem=4.777 MiB
+- mmap_read: 0.002s, peak_mem=4.777 MiB
+- bz2_write: 0.409s, peak_mem=7.210 MiB
+- gzip_read: 0.011s, peak_mem=8.060 MiB
+- text_read: 0.016s, peak_mem=9.546 MiB
+- text_write: 0.006s, peak_mem=9.567 MiB
+- bz2_read: 0.016s, peak_mem=10.129 MiB
