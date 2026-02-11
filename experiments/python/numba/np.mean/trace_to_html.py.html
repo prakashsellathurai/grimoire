@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trace Call Tree - trace_to_html.py</title>
+  <style>
+    :root {
+      --bg: #f6f2ec;
+      --panel: #fffaf3;
+      --ink: #2f2a25;
+      --muted: #6f655c;
+      --accent: #b66d3b;
+      --line: #e6d8c7;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", "Source Sans 3", "Noto Sans", sans-serif;
+      line-height: 1.4;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 32px auto 48px;
+      padding: 0 24px;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin: 0 0 6px;
+      letter-spacing: 0.01em;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+    .tree {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+    details.node {
+      margin: 4px 0;
+      border-left: 2px solid var(--line);
+      padding-left: 12px;
+    }
+    .node > summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 600;
+    }
+    .node > summary::-webkit-details-marker {
+      display: none;
+    }
+    .node > summary::before {
+      content: ">";
+      color: var(--accent);
+      display: inline-block;
+      width: 1em;
+      margin-right: 6px;
+      transform: rotate(0deg);
+      transition: transform 0.15s ease;
+    }
+    details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+    .children {
+      margin-left: 14px;
+      margin-top: 6px;
+    }
+    .leaf {
+      margin: 4px 0;
+      padding-left: 26px;
+      position: relative;
+    }
+    .leaf::before {
+      content: "*";
+      color: var(--accent);
+      position: absolute;
+      left: 10px;
+    }
+    .count {
+      color: var(--muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Trace Call Tree - trace_to_html.py</h1>
+    <div class="meta">C:\Users\Prakash\Documents\jobsearch\grimoire\experiments\python\trace_to_html.py<br />File events: 1 | Nodes: 1 | Max depth: 0</div>
+    <div class="tree">
+      <div class="node leaf">foo.py <span class="count">(1)</span></div>
+    </div>
+  </div>
+</body>
+</html>

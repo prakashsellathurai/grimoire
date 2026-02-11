@@ -1,0 +1,25 @@
+>>>>>> import numpy as np
+>>>>>> a = -0.0
+>>>>>> anp = np.mean(a)
+>>>>>> print(anp)
+       
+       
+>>>>>> import sys
+>>>>>> import trace
+       
+       # create a Trace object, telling it what to ignore, and whether to
+       # do tracing or line-counting or both.
+>>>>>> tracer = trace.Trace(
+>>>>>>     ignoredirs=[sys.prefix, sys.exec_prefix],
+>>>>>>     trace=0,
+>>>>>>     count=1)
+       
+>>>>>> def main(a):
+    1:     return np.mean(a)
+       
+       # run the new command using the given tracer
+>>>>>> tracer.run('main(a)')
+       
+       # make a report, placing output in the current directory
+>>>>>> r = tracer.results()
+>>>>>> r.write_results(show_missing=True, coverdir=".")
