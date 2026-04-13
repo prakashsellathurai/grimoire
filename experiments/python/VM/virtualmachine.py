@@ -20,10 +20,12 @@
 # str	5	rr	Store register	str R0 R1	memory[R1] = R0
 # add	6	rr	Add	add R0 R1	R0 = R0 + R1
 # sub	7	rr	Subtract	sub R0 R1	R0 = R0 - R1
-# beq	8	rv	Branch if equal	beq R0 99	if (R0==0) IP = 99
-# bne	9	rv	Branch if not equal	bne R0 99	if (R0!=0) IP = 99
-# prr	10	r-	Print register	prr R0	print(R0)
-# prm	11	r-	Print memory	prm R0	print(memory[R0])
+# xor   8   rr  Xor xor R0 R1 R0 = R0 xor R1
+# beq	9	rv	Branch if equal	beq R0 99	if (R0==0) IP = 99
+# bne	10	rv	Branch if not equal	bne R0 99	if (R0!=0) IP = 99
+# prr	11	r-	Print register	prr R0	print(R0)
+# prm	12	r-	Print memory	prm R0	print(memory[R0])
+# sta   13  rvv Store Array sta R0 R1 2
 
 
 NUM_REG = 4  # number of registers
@@ -37,10 +39,12 @@ OPS = {
     "str": {"code": 0x5, "fmt": "rr"},  # Store register
     "add": {"code": 0x6, "fmt": "rr"},  # Add
     "sub": {"code": 0x7, "fmt": "rr"},  # Subtract
-    "beq": {"code": 0x8, "fmt": "rv"},  # Branch if equal
-    "bne": {"code": 0x9, "fmt": "rv"},  # Branch if not equal
-    "prr": {"code": 0xA, "fmt": "r-"},  # Print register
-    "prm": {"code": 0xB, "fmt": "r-"},  # Print memory
+    "xor": {"code": 0x8, "fmt": "rr"},  # xor
+    "beq": {"code": 0x9, "fmt": "rv"},  # Branch if equal
+    "bne": {"code": 0xA, "fmt": "rv"},  # Branch if not equal
+    "prr": {"code": 0xB, "fmt": "r-"},  # Print register
+    "prm": {"code": 0xC, "fmt": "r-"},  # Print memory
+    "sta": {"code": 0xD, "fmt": "rvv"},  # sta R_src base_addr index (Store to array)
 }
 OP_MASK = 0xFF  # select a single byte
 OP_SHIFT = 8  # shift up by one byte
@@ -78,14 +82,17 @@ class VirtualMachine:
 
         arg1 = instruction & OP_MASK
         instruction >>= OP_SHIFT
+        
+        arg2 = instruction & OP_MASK
+        instruction >>= OP_SHIFT
 
-        return [op, arg0, arg1]
+        return [op, arg0, arg1, arg2]
 
     def run(self):
         running = True
 
         while running:
-            op, arg0, arg1 = self.fetch()
+            op, arg0, arg1, arg2 = self.fetch()
             if op == OPS["hlt"]["code"]:
                 running = False
             elif op == OPS["ldc"]["code"]:
@@ -100,6 +107,8 @@ class VirtualMachine:
                 self.reg[arg0] += self.reg[arg1]
             elif op == OPS["sub"]["code"]:
                 self.reg[arg0] -= self.reg[arg1]
+            elif op == OPS["xor"]["code"]:
+                self.reg[arg0] ^= self.reg[arg1]
             elif op == OPS["beq"]["code"]:
                 if self.reg[arg0] == 0:
                     self.ip = arg1
@@ -110,6 +119,9 @@ class VirtualMachine:
                 print(self.reg[arg0])
             elif op == OPS["prm"]["code"]:
                 print(self.ram[self.reg[arg0]])
+            elif op  == OPS["sda"]["code"]:
+                eff_addr = arg1 + arg2
+                self.ram[eff_addr] = self.reg[arg0]
 
 
 DIVIDER = ".data"
@@ -130,7 +142,7 @@ class Assembler:
         return program
 
     def _get_lines(self, lines):
-        return lines.splitlines()
+        return list(filter(None,lines.splitlines())) # remove empty strings
 
     def _find_labels(self, lines):
         result = {}
@@ -161,7 +173,9 @@ class Assembler:
             return self._combine(self._reg(args[1]), self._reg(args[0]), code)
         elif fmt == "rv":
             return self._combine(self._val(args[1], labels), self._reg(args[0]), code)
-
+        elif fmt == "rvv": # New format for Array Ops
+            return self._combine(self._val(args[2], labels), self._val(args[1], labels), self._reg(args[0]), code)
+            
     def _combine(self, *args):
         assert len(args) > 0, "cannot combine no arguments"
         result = 0
@@ -215,7 +229,7 @@ if __name__ == "__main__":
         ">> save number 3 to register 0 ; number 4 to register 1; print value at register 1;  print value at register 0 ;halt"
     )
     program = "\n".join(
-        str(op) for op in [0x030002, 0x040102, 0x00010A, 0x00000A, 0x000001]
+        str(op) for op in [0x030002, 0x040102, 0x00010B, 0x00000B, 0x000001]
     )
     vm.execute(program)
 
@@ -257,6 +271,38 @@ bne R3 @loop
 hlt
 .data
 array: 10
+"""
+    program = asm.assemble(code)
+    vm.execute(program)
+    
+    print(">> swap R1 and R2 without affecting other values")
+    code = """
+ldc R1 0
+ldc R2 2
+prr R1
+prr R2
+xor R1 R2
+xor R2 R1
+xor R1 R2
+prr R1
+prr R2
+hlt
+"""
+    program = asm.assemble(code)
+    vm.execute(program)
+    
+    print(">> reverse the array")
+    code = """
+ldc R0 5
+
+loop:
+sta R0 @array 
+bne 
+
+hlt
+
+.data
+array: 5
 """
     program = asm.assemble(code)
     vm.execute(program)
