@@ -45,6 +45,8 @@ OPS = {
     "prr": {"code": 0xB, "fmt": "r-"},  # Print register
     "prm": {"code": 0xC, "fmt": "r-"},  # Print memory
     "sta": {"code": 0xD, "fmt": "rvv"},  # sta R_src base_addr index (Store to array)
+    "inc": {"code": 0xE, "fmt": "r-"}, # increment register
+    "dec": {"code": 0xF, "fmt": "r-"} #    Decrement Register
 }
 OP_MASK = 0xFF  # select a single byte
 OP_SHIFT = 8  # shift up by one byte
@@ -119,10 +121,13 @@ class VirtualMachine:
                 print(self.reg[arg0])
             elif op == OPS["prm"]["code"]:
                 print(self.ram[self.reg[arg0]])
-            elif op  == OPS["sda"]["code"]:
+            elif op  == OPS["sta"]["code"]:
                 eff_addr = arg1 + arg2
                 self.ram[eff_addr] = self.reg[arg0]
-
+            elif op == OPS["inc"]["code"]:
+                self.reg[arg0] += 1
+            elif op == OPS["dec"]["code"]:
+                self.reg[arg0] -= 1
 
 DIVIDER = ".data"
 
@@ -142,8 +147,13 @@ class Assembler:
         return program
 
     def _get_lines(self, lines):
-        return list(filter(None,lines.splitlines())) # remove empty strings
-
+        cleaned = []
+        for line in lines.splitlines():
+            # remove comments starting with ';'
+            line = line.split(";")[0].strip()
+            if line:
+                 cleaned.append(line)
+        return cleaned
     def _find_labels(self, lines):
         result = {}
         loc = 0
@@ -293,16 +303,89 @@ hlt
     
     print(">> reverse the array")
     code = """
-ldc R0 5
-
-loop:
-sta R0 @array 
-bne 
-
-hlt
-
-.data
-array: 5
+    ldc R2 @array
+    
+    ldc R0 1
+    sta R0 @array 0
+    ldc R0 2
+    sta R0 @array 1
+    ldc R0 3
+    sta R0 @array 2
+    ldc R0 4
+    sta R0 @array 3
+    ldc R0 5
+    sta R0 @array 4
+    
+    ldc R0 0
+    ldc R1 5
+    
+    print_before:
+    cpy R3 R2
+    add R3 R0
+    prm R3
+    
+    ldc R3 1
+    add R0 R3
+    
+    cpy R3 R1
+    sub R3 R0
+    bne R3 @print_before
+    
+    ldc R0 0
+    ldc R1 4
+    
+    loop:
+    cpy R3 R1
+    sub R3 R0
+    beq R3 @end
+    
+    cpy R3 R2
+    add R3 R0
+    ldr R3 R3
+    
+    cpy R3 R2
+    add R3 R1
+    ldr R3 R3
+    
+    ldc R3 1
+    add R0 R3
+    sub R1 R3
+    
+    bne R3 @loop
+    
+    end:
+    
+    ldc R0 0
+    ldc R1 5
+    
+    print_after:
+    cpy R3 R2
+    add R3 R0
+    prm R3
+    
+    ldc R3 1
+    add R0 R3
+    
+    cpy R3 R1
+    sub R3 R0
+    bne R3 @print_after
+    
+    hlt
+    
+    .data
+    array: 5
 """
+    program = asm.assemble(code)
+    vm.execute(program)
+    
+    print(">> Increment and Decrement")
+    code = """ldc R0 0
+    ldc R1 3
+    prr R1
+    inc R1
+    prr R1
+    dec R1
+    prr R1
+    hlt"""
     program = asm.assemble(code)
     vm.execute(program)
