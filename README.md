@@ -2,73 +2,77 @@
 
 This repository serves as a collection of my magic spells and a scratchbook.
 
-  <!-- TREE_TOC_START -->
+ <!-- TOC_START -->
 
-## Table of contents
+<h2>🌳 Directory Tree</h2>
+<div class="directory-tree" style="font-family: monospace; white-space: pre; overflow-x: auto;">
+<strong>grimoire/</strong><br/>
+├──&nbsp;📁&nbsp;.github/<br/>
+│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;workflows/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href=".github/workflows/update-toc.yml">update-toc.yml</a><br/>
+├──&nbsp;📁&nbsp;competition_scripts/<br/>
+│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;podRacing/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="competition_scripts/podRacing/AIracer-with-drift-control.py">AIracer-with-drift-control.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="competition_scripts/podRacing/Airacterpodupdate.py">Airacterpodupdate.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="competition_scripts/podRacing/hivemindpodcontrol.py">hivemindpodcontrol.py</a><br/>
+├──&nbsp;📁&nbsp;experiments/<br/>
+│&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;C/<br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/C/epoll_server.c">epoll_server.c</a><br/>
+│&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;biology/<br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;dna-sequencing/<br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/dna-sequence-file-io.log">dna-sequence-file-io.log</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/dna-sequence-file-io.py">dna-sequence-file-io.py</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/dna-sequencing-match.py">dna-sequencing-match.py</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/dna_advanced_search.py">dna_advanced_search.py</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/dna_io_profile.log">dna_io_profile.log</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/dna_io_profile.py">dna_io_profile.py</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/pattern-extraction.py">pattern-extraction.py</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/biology/dna-sequencing/readme.md">readme.md</a><br/>
+│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;python/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;SIMD/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/SIMD/swar_.py">swar_.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;VM/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/VM/virtualmachine.py">virtualmachine.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;dns/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/dns/domain-checker.py">domain-checker.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;gluecodes/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/gluecodes/pull-github.py">pull-github.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;numba/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;np.mean/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;.ipynb_checkpoints/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/.ipynb_checkpoints/debugnpmean-checkpoint.py">debugnpmean-checkpoint.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/.ipynb_checkpoints/npmeanjit-checkpoint.ipynb">npmeanjit-checkpoint.ipynb</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/.ipynb_checkpoints/scratchbook-checkpoint.ipynb">scratchbook-checkpoint.ipynb</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/benchmark-branching.py">benchmark-branching.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/benchmark.py">benchmark.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/debugnpmean.cover">debugnpmean.cover</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/debugnpmean.py">debugnpmean.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/npmean.profile">npmean.profile</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/npmean.trace">npmean.trace</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/npmean.trace.html">npmean.trace.html</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/npmeanjit.ipynb">npmeanjit.ipynb</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/npscalartypes.py">npscalartypes.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/numpy._core._methods.cover">numpy._core._methods.cover</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/numpy._core.fromnumeric.cover">numpy._core.fromnumeric.cover</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/scratchbook.ipynb">scratchbook.ipynb</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/trace_to_html.py">trace_to_html.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/trace_to_html.py.html">trace_to_html.py.html</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;skiplist/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/skiplist/skiplist.py">skiplist.py</a><br/>
+├──&nbsp;📁&nbsp;tools/<br/>
+│&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;finances/<br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/finances/downloadfromgmailwithquery.appscript">downloadfromgmailwithquery.appscript</a><br/>
+│&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;scripts/<br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/add_journal_entry.sh">add_journal_entry.sh</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/auto-complete.sh">auto-complete.sh</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/autocommit.sh">autocommit.sh</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/gitcommitandpush.sh">gitcommitandpush.sh</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/llmscripthelper.sh">llmscripthelper.sh</a><br/>
+│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/remove_empty_dirs.sh">remove_empty_dirs.sh</a><br/>
+│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;self/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/self/update_toc.py">update_toc.py</a><br/>
+└──&nbsp;📄&nbsp;<a&nbsp;href=".git">.git</a><br/>
+</div>
+<p><em>Click on any 📄 file to view it</em></p>
 
-```
-grimoire/
-├── 📁 **.github/**
-│   └── 📁 **workflows/**
-│       └── 📄 [update-toc.yml](.github/workflows/update-toc.yml)
-├── 📁 **competition_scripts/**
-│   └── 📁 **podRacing/**
-│       ├── 📄 [AIracer-with-drift-control.py](competition_scripts/podRacing/AIracer-with-drift-control.py)
-│       ├── 📄 [Airacterpodupdate.py](competition_scripts/podRacing/Airacterpodupdate.py)
-│       └── 📄 [hivemindpodcontrol.py](competition_scripts/podRacing/hivemindpodcontrol.py)
-├── 📁 **experiments/**
-│   ├── 📁 **C/**
-│   │   └── 📄 [epoll_server.c](experiments/C/epoll_server.c)
-│   ├── 📁 **biology/**
-│   │   └── 📁 **dna-sequencing/**
-│   │       ├── 📄 [dna-sequence-file-io.log](experiments/biology/dna-sequencing/dna-sequence-file-io.log)
-│   │       ├── 📄 [dna-sequence-file-io.py](experiments/biology/dna-sequencing/dna-sequence-file-io.py)
-│   │       ├── 📄 [dna-sequencing-match.py](experiments/biology/dna-sequencing/dna-sequencing-match.py)
-│   │       ├── 📄 [dna_advanced_search.py](experiments/biology/dna-sequencing/dna_advanced_search.py)
-│   │       ├── 📄 [dna_io_profile.log](experiments/biology/dna-sequencing/dna_io_profile.log)
-│   │       ├── 📄 [dna_io_profile.py](experiments/biology/dna-sequencing/dna_io_profile.py)
-│   │       ├── 📄 [pattern-extraction.py](experiments/biology/dna-sequencing/pattern-extraction.py)
-│   │       └── 📄 [readme.md](experiments/biology/dna-sequencing/readme.md)
-│   └── 📁 **python/**
-│       ├── 📁 **SIMD/**
-│       │   └── 📄 [swar_.py](experiments/python/SIMD/swar_.py)
-│       ├── 📁 **VM/**
-│       │   └── 📄 [virtualmachine.py](experiments/python/VM/virtualmachine.py)
-│       ├── 📁 **dns/**
-│       │   └── 📄 [domain-checker.py](experiments/python/dns/domain-checker.py)
-│       ├── 📁 **gluecodes/**
-│       │   └── 📄 [pull-github.py](experiments/python/gluecodes/pull-github.py)
-│       ├── 📁 **numba/**
-│       │   └── 📁 **np.mean/**
-│       │       ├── 📁 **.ipynb_checkpoints/**
-│       │       ├── 📄 [benchmark-branching.py](experiments/python/numba/np.mean/benchmark-branching.py)
-│       │       ├── 📄 [benchmark.py](experiments/python/numba/np.mean/benchmark.py)
-│       │       ├── 📄 [debugnpmean.cover](experiments/python/numba/np.mean/debugnpmean.cover)
-│       │       ├── 📄 [debugnpmean.py](experiments/python/numba/np.mean/debugnpmean.py)
-│       │       ├── 📄 [npmean.profile](experiments/python/numba/np.mean/npmean.profile)
-│       │       ├── 📄 [npmean.trace](experiments/python/numba/np.mean/npmean.trace)
-│       │       ├── 📄 [npmean.trace.html](experiments/python/numba/np.mean/npmean.trace.html)
-│       │       ├── 📄 [npmeanjit.ipynb](experiments/python/numba/np.mean/npmeanjit.ipynb)
-│       │       ├── 📄 [npscalartypes.py](experiments/python/numba/np.mean/npscalartypes.py)
-│       │       ├── 📄 [numpy._core._methods.cover](experiments/python/numba/np.mean/numpy._core._methods.cover)
-│       │       ├── 📄 [numpy._core.fromnumeric.cover](experiments/python/numba/np.mean/numpy._core.fromnumeric.cover)
-│       │       ├── 📄 [scratchbook.ipynb](experiments/python/numba/np.mean/scratchbook.ipynb)
-│       │       ├── 📄 [trace_to_html.py](experiments/python/numba/np.mean/trace_to_html.py)
-│       │       └── 📄 [trace_to_html.py.html](experiments/python/numba/np.mean/trace_to_html.py.html)
-│       └── 📁 **skiplist/**
-│           └── 📄 [skiplist.py](experiments/python/skiplist/skiplist.py)
-└── 📁 **tools/**
-    ├── 📁 **finances/**
-    │   └── 📄 [downloadfromgmailwithquery.appscript](tools/finances/downloadfromgmailwithquery.appscript)
-    ├── 📁 **scripts/**
-    │   ├── 📄 [add_journal_entry.sh](tools/scripts/add_journal_entry.sh)
-    │   ├── 📄 [auto-complete.sh](tools/scripts/auto-complete.sh)
-    │   ├── 📄 [autocommit.sh](tools/scripts/autocommit.sh)
-    │   ├── 📄 [gitcommitandpush.sh](tools/scripts/gitcommitandpush.sh)
-    │   ├── 📄 [llmscripthelper.sh](tools/scripts/llmscripthelper.sh)
-    │   └── 📄 [remove_empty_dirs.sh](tools/scripts/remove_empty_dirs.sh)
-    └── 📁 **self/**
-        └── 📄 [update_toc.py](tools/self/update_toc.py)
-```
-
-<!-- TREE_TOC_END -->
+<!-- TOC_END -->

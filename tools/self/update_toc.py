@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 """
-Disclaimer -> A Clanker generated this file
-
 Script to generate a Tree Diagram Table of Contents for all files
-and update README.md with the tree structure.
+and update README.md with the tree structure using HTML tags.
 """
 
 import os
@@ -13,7 +11,7 @@ import argparse
 import re
 
 class TreeTOCGenerator:
-    """Generate tree diagram TOC for README files."""
+    """Generate tree diagram TOC for README files using HTML."""
     
     def __init__(self, root_dir: str = ".", exclude_dirs: List[str] = None, 
                  exclude_files: List[str] = None, max_depth: Optional[int] = None):
@@ -29,18 +27,22 @@ class TreeTOCGenerator:
         self.root_dir = Path(root_dir).resolve()
         self.exclude_dirs = set(exclude_dirs or [
             '.git', '__pycache__', 'venv', 'env', 'node_modules', 
-            '.venv', '.idea', '.vscode', 'dist', 'build', 'temp'
+            '.venv', '.idea', '.vscode', 'dist', 'build', 'temp',
+            '.ipynb_checkpoints'  # Added this common exclusion
         ])
         self.exclude_files = set(exclude_files or [
             'README.md', '.gitignore', 'LICENSE', '.DS_Store', 
             'Thumbs.db', 'update_toc.py', 'tree_toc.py'
         ])
         self.max_depth = max_depth
-        self.tree_structure = []
         
     def should_exclude_dir(self, dir_path: Path) -> bool:
         """Check if directory should be excluded."""
-        return any(excluded in dir_path.parts for excluded in self.exclude_dirs)
+        # Check if any excluded directory name is in the path
+        for excluded in self.exclude_dirs:
+            if excluded in dir_path.parts:
+                return True
+        return False
     
     def should_exclude_file(self, file_path: Path) -> bool:
         """Check if file should be excluded."""
@@ -53,8 +55,16 @@ class TreeTOCGenerator:
         except ValueError:
             return str(path)
     
+    def escape_html(self, text: str) -> str:
+        """Escape HTML special characters."""
+        return (text.replace('&', '&amp;')
+                    .replace('<', '&lt;')
+                    .replace('>', '&gt;')
+                    .replace('"', '&quot;')
+                    .replace("'", '&#39;'))
+    
     def build_tree(self, current_dir: Path = None, depth: int = 0, 
-                   prefix: str = "", is_last: bool = True) -> List[str]:
+                   prefix: str = "", is_last: bool = True, use_links: bool = True) -> List[str]:
         """
         Recursively build the directory tree.
         
@@ -63,6 +73,7 @@ class TreeTOCGenerator:
             depth: Current depth level
             prefix: Prefix for tree formatting
             is_last: Whether this is the last item at current level
+            use_links: Whether to create clickable links
             
         Returns:
             List of tree lines
@@ -95,8 +106,8 @@ class TreeTOCGenerator:
             
             # Create the line
             if item.is_dir():
-                # Directory with emoji
-                line = f"{prefix}{connector}📁 **{item.name}/**"
+                # Directory
+                line = f"{prefix}{connector}📁 {item.name}/"
                 lines.append(line)
                 
                 # Recursively process subdirectory
@@ -105,105 +116,65 @@ class TreeTOCGenerator:
                     item, 
                     depth + 1, 
                     prefix + extension,
-                    is_last_item
+                    is_last_item,
+                    use_links
                 )
                 lines.extend(sub_lines)
             else:
-                # File with link
-                relative_path = self.get_relative_path(item)
-                # URL encode spaces and special characters
-                link_path = relative_path.replace(' ', '%20')
-                line = f"{prefix}{connector}📄 [{item.name}]({link_path})"
+                # File
+                if use_links:
+                    relative_path = self.get_relative_path(item)
+                    # URL encode spaces and special characters
+                    link_path = relative_path.replace(' ', '%20')
+                    line = f'{prefix}{connector}📄 <a href="{link_path}">{item.name}</a>'
+                else:
+                    line = f'{prefix}{connector}📄 {item.name}'
                 lines.append(line)
         
         return lines
     
-    def generate_tree_toc(self, title: str = "Table of contents") -> str:
+    def generate_tree_toc(self, title: str = "🌳 Directory Tree", use_links: bool = True) -> str:
         """
         Generate the complete tree diagram TOC.
         
         Args:
             title: Title for the TOC section
+            use_links: Whether to include clickable links
             
         Returns:
-            Markdown formatted tree TOC
+            HTML formatted tree TOC
         """
-        lines = [f"## {title}\n"]
-        lines.append("```")
-        lines.append(f"{self.root_dir.name}/")
+        # Use a styled pre block that preserves formatting
+        html_parts = [
+            f"<h2>{title}</h2>",
+            '<div class="directory-tree" style="font-family: monospace; white-space: pre; overflow-x: auto;">',
+            f'<strong>{self.root_dir.name}/</strong><br/>'
+        ]
         
         # Generate tree structure
-        tree_lines = self.build_tree()
-        lines.extend(tree_lines)
+        tree_lines = self.build_tree(use_links=use_links)
         
-        lines.append("```")
+        # Join lines with <br/> tags and proper indentation preservation
+        for line in tree_lines:
+            # Replace spaces with &nbsp; to preserve them in HTML
+            # But keep the tree characters as-is
+            formatted_line = line.replace(' ', '&nbsp;')
+            html_parts.append(f"{formatted_line}<br/>")
         
-        return "\n".join(lines)
-    
-    def generate_simple_tree(self, title: str = "🌳 Directory Structure") -> str:
-        """
-        Generate a simple text-based tree without markdown links.
+        html_parts.append('</div>')
         
-        Args:
-            title: Title for the TOC section
-            
-        Returns:
-            Simple tree diagram
-        """
-        lines = [f"## {title}\n"]
-        lines.append("```")
-        lines.append(f"{self.root_dir.name}/")
+        if use_links:
+            html_parts.append('<p><em>Click on any 📄 file to view it</em></p>')
         
-        # Generate tree without links
-        tree_lines = self.build_simple_tree()
-        lines.extend(tree_lines)
-        
-        lines.append("```")
-        return "\n".join(lines)
-    
-    def build_simple_tree(self, current_dir: Path = None, depth: int = 0, 
-                         prefix: str = "", is_last: bool = True) -> List[str]:
-        """Build simple tree without file links."""
-        if current_dir is None:
-            current_dir = self.root_dir
-        
-        if self.max_depth is not None and depth > self.max_depth:
-            return []
-        
-        lines = []
-        
-        try:
-            items = sorted(current_dir.iterdir())
-        except PermissionError:
-            return lines
-        
-        dirs = [item for item in items if item.is_dir() and not self.should_exclude_dir(item)]
-        files = [item for item in items if item.is_file() and not self.should_exclude_file(item)]
-        
-        all_items = dirs + files
-        for idx, item in enumerate(all_items):
-            is_last_item = (idx == len(all_items) - 1)
-            connector = "└── " if is_last_item else "├── "
-            
-            if item.is_dir():
-                lines.append(f"{prefix}{connector}{item.name}/")
-                extension = "    " if is_last_item else "│   "
-                sub_lines = self.build_simple_tree(
-                    item, depth + 1, prefix + extension, is_last_item
-                )
-                lines.extend(sub_lines)
-            else:
-                lines.append(f"{prefix}{connector}{item.name}")
-        
-        return lines
+        return "\n".join(html_parts)
 
 def update_readme_with_tree(readme_path: str = "README.md", 
                            tree_generator: Optional[TreeTOCGenerator] = None,
                            use_links: bool = True,
-                           toc_marker_start: str = "<!-- TREE_TOC_START -->",
-                           toc_marker_end: str = "<!-- TREE_TOC_END -->") -> bool:
+                           toc_marker_start: str = "<!-- TOC_START -->",
+                           toc_marker_end: str = "<!-- TOC_END -->") -> bool:
     """
-    Update README.md with tree diagram TOC.
+    Update README.md with HTML tree diagram TOC.
     
     Args:
         readme_path: Path to README.md
@@ -219,17 +190,14 @@ def update_readme_with_tree(readme_path: str = "README.md",
     if not os.path.exists(readme_path):
         print(f"⚠️  {readme_path} not found. Creating new file...")
         with open(readme_path, 'w', encoding='utf-8') as f:
-            f.write(f"# Project Documentation\n\n{toc_marker_start}\n{toc_marker_end}\n\n## About\nAdd your project description here.\n")
+            f.write(f"<h1>Project Documentation</h1>\n\n{toc_marker_start}\n{toc_marker_end}\n\n<h2>About</h2>\n<p>Add your project description here.</p>\n")
     
     # Create default tree generator if none provided
     if tree_generator is None:
         tree_generator = TreeTOCGenerator()
     
     # Generate tree TOC
-    if use_links:
-        tree_toc = tree_generator.generate_tree_toc()
-    else:
-        tree_toc = tree_generator.generate_simple_tree()
+    tree_toc = tree_generator.generate_tree_toc(use_links=use_links)
     
     # Read current README
     with open(readme_path, 'r', encoding='utf-8') as f:
@@ -264,7 +232,7 @@ def update_readme_with_tree(readme_path: str = "README.md",
 def main():
     """Main function with command-line interface."""
     parser = argparse.ArgumentParser(
-        description="Generate Tree Diagram Table of Contents for README",
+        description="Generate Tree Diagram Table of Contents for README using HTML",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -304,23 +272,31 @@ Examples:
     parser.add_argument(
         "--exclude-dirs",
         nargs="+",
-        default=['.git', '__pycache__', 'venv', 'env', 'node_modules', '.venv', '.idea', '.vscode'],
         help="Additional directories to exclude"
     )
     parser.add_argument(
         "--exclude-files",
         nargs="+",
-        default=['README.md', '.gitignore', 'LICENSE', '.DS_Store'],
         help="Additional files to exclude"
     )
     
     args = parser.parse_args()
     
+    # Build exclude lists
+    exclude_dirs = ['.git', '__pycache__', 'venv', 'env', 'node_modules', 
+                    '.venv', '.idea', '.vscode', 'dist', 'build', 'temp']
+    if args.exclude_dirs:
+        exclude_dirs.extend(args.exclude_dirs)
+    
+    exclude_files = ['README.md', '.gitignore', 'LICENSE', '.DS_Store', 'Thumbs.db']
+    if args.exclude_files:
+        exclude_files.extend(args.exclude_files)
+    
     # Create tree generator
     generator = TreeTOCGenerator(
         root_dir=".",
-        exclude_dirs=args.exclude_dirs,
-        exclude_files=args.exclude_files,
+        exclude_dirs=exclude_dirs,
+        exclude_files=exclude_files,
         max_depth=args.max_depth
     )
     
@@ -341,6 +317,7 @@ Examples:
         print(f"  • Max depth: {args.max_depth}")
     print(f"  • Link type: {'Clickable' if not args.simple else 'Plain text'}")
     print(f"  • Excluded dirs: {', '.join(generator.exclude_dirs)}")
+    print(f"  • Format: HTML with preserved whitespace")
 
 if __name__ == "__main__":
     main()
