@@ -40,9 +40,6 @@ This repository serves as a collection of my magic spells and a scratchbook.
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;numba/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;np.mean/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;.ipynb_checkpoints/<br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/.ipynb_checkpoints/debugnpmean-checkpoint.py">debugnpmean-checkpoint.py</a><br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/.ipynb_checkpoints/npmeanjit-checkpoint.ipynb">npmeanjit-checkpoint.ipynb</a><br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/.ipynb_checkpoints/scratchbook-checkpoint.ipynb">scratchbook-checkpoint.ipynb</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/benchmark-branching.py">benchmark-branching.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/benchmark.py">benchmark.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/debugnpmean.cover">debugnpmean.cover</a><br/>
@@ -59,19 +56,18 @@ This repository serves as a collection of my magic spells and a scratchbook.
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/numba/np.mean/trace_to_html.py.html">trace_to_html.py.html</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;skiplist/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="experiments/python/skiplist/skiplist.py">skiplist.py</a><br/>
-├──&nbsp;📁&nbsp;tools/<br/>
-│&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;finances/<br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/finances/downloadfromgmailwithquery.appscript">downloadfromgmailwithquery.appscript</a><br/>
-│&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;scripts/<br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/add_journal_entry.sh">add_journal_entry.sh</a><br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/auto-complete.sh">auto-complete.sh</a><br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/autocommit.sh">autocommit.sh</a><br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/gitcommitandpush.sh">gitcommitandpush.sh</a><br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/llmscripthelper.sh">llmscripthelper.sh</a><br/>
-│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/remove_empty_dirs.sh">remove_empty_dirs.sh</a><br/>
-│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;self/<br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/self/update_toc.py">update_toc.py</a><br/>
-└──&nbsp;📄&nbsp;<a&nbsp;href=".git">.git</a><br/>
+└──&nbsp;📁&nbsp;tools/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;finances/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/finances/downloadfromgmailwithquery.appscript">downloadfromgmailwithquery.appscript</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;scripts/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/add_journal_entry.sh">add_journal_entry.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/auto-complete.sh">auto-complete.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/autocommit.sh">autocommit.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/gitcommitandpush.sh">gitcommitandpush.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/llmscripthelper.sh">llmscripthelper.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/scripts/remove_empty_dirs.sh">remove_empty_dirs.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;self/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a&nbsp;href="tools/self/update_toc.py">update_toc.py</a><br/>
 </div>
 <p><em>Click on any 📄 file to view it</em></p>
 
