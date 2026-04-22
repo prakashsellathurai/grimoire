@@ -312,6 +312,7 @@ Examples:
         exit(1)
     
     # Print summary
+    print("Reminder to self: A Clanker generated this. Never trust a stochastically relevant token generator with 100% confidence")
     print("\n📊 Summary:")
     print(f"  • Root directory: {generator.root_dir}")
     if args.max_depth:
