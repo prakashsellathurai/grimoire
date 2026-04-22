@@ -7,7 +7,10 @@ on:
       - '**/*'  # Trigger on any file change
       - '!README.md'  # But not when README changes
   workflow_dispatch:  # Manual trigger
-
+  
+permissions:
+  contents: write
+  
 jobs:
   update:
     runs-on: ubuntu-latest
