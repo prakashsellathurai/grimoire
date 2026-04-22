@@ -27,7 +27,7 @@ jobs:
           
       - name: Run TOC generator
         run: |
-          python tools/self/update_toc.py --max-depth 4
+          python tools/self/update_toc.py --max-depth 6
           
       - name: Add and Commit changes
         uses: EndBug/add-and-commit@v9
