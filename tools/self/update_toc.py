@@ -29,6 +29,7 @@ class TreeTOCGenerator:
             '.git', '__pycache__', 'venv', 'env', 'node_modules', 
             '.venv', '.idea', '.vscode', 'dist', 'build', 'temp',
             '.ipynb_checkpoints'  # Added this common exclusion
+            ".github"
         ])
         self.exclude_files = set(exclude_files or [
             'README.md', '.gitignore', 'LICENSE', '.DS_Store', 
@@ -133,7 +134,7 @@ class TreeTOCGenerator:
         
         return lines
     
-    def generate_tree_toc(self, title: str = "🌳 Directory Tree", use_links: bool = True) -> str:
+    def generate_tree_toc(self, title: str = "Table of Contents", use_links: bool = True) -> str:
         """
         Generate the complete tree diagram TOC.
         
@@ -164,8 +165,7 @@ class TreeTOCGenerator:
         
         html_parts.append('</div>')
         
-        if use_links:
-            html_parts.append('<p><em>Click on any 📄 file to view it</em></p>')
+
         
         return "\n".join(html_parts)
 
