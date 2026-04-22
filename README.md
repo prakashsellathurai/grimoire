@@ -40,6 +40,9 @@ This repository serves as a collection of my magic spells and a scratchbook.
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;numba/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;np.mean/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;.ipynb_checkpoints/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/.ipynb_checkpoints/debugnpmean-checkpoint.py">debugnpmean-checkpoint.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/.ipynb_checkpoints/npmeanjit-checkpoint.ipynb">npmeanjit-checkpoint.ipynb</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/.ipynb_checkpoints/scratchbook-checkpoint.ipynb">scratchbook-checkpoint.ipynb</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/benchmark-branching.py">benchmark-branching.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/benchmark.py">benchmark.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/debugnpmean.cover">debugnpmean.cover</a><br/>
