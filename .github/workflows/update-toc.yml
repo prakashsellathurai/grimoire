@@ -44,5 +44,3 @@ jobs:
           committer_email: 'github-actions[bot]@users.noreply.github.com'
           # Push to branch
           push: true
-          # Create pull request if push fails (optional)
-          pull: '--no-pull'
