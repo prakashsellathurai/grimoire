@@ -28,7 +28,7 @@ class TreeTOCGenerator:
         self.exclude_dirs = set(exclude_dirs or [
             '.git', '__pycache__', 'venv', 'env', 'node_modules', 
             '.venv', '.idea', '.vscode', 'dist', 'build', 'temp',
-            '.ipynb_checkpoints'  # Added this common exclusion
+            '.ipynb_checkpoints' , # Added this common exclusion
             ".github"
         ])
         self.exclude_files = set(exclude_files or [
