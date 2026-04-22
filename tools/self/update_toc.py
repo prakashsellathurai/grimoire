@@ -159,6 +159,7 @@ class TreeTOCGenerator:
             # Replace spaces with &nbsp; to preserve them in HTML
             # But keep the tree characters as-is
             formatted_line = line.replace(' ', '&nbsp;')
+            formatted_line = formatted_line.replace("<a&nbsp;", "<a ")
             html_parts.append(f"{formatted_line}<br/>")
         
         html_parts.append('</div>')
