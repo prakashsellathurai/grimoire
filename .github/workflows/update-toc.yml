@@ -1,0 +1,35 @@
+name: Auto-update README TOC
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '**/*'  # Trigger on any file change
+      - '!README.md'  # But not when README changes
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Run TOC generator
+        run: |
+          python tools/self/update_toc.py --max-depth 4
+          
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "docs: auto-update README table of contents [skip ci]"
+          git push
