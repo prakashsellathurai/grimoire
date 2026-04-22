@@ -26,10 +26,23 @@ jobs:
         run: |
           python tools/self/update_toc.py --max-depth 4
           
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "actions@github.com"
-          git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "docs: auto-update README table of contents [skip ci]"
-          git push
+      - name: Add and Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          # GitHub token
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Commit message
+          message: '📝 Auto-update README TOC [skip ci]'
+          # Files to commit
+          add: 'README.md'
+          # Author name
+          author_name: 'github-actions[bot]'
+          # Author email
+          author_email: 'github-actions[bot]@users.noreply.github.com'
+          # Commit user
+          committer_name: 'github-actions[bot]'
+          committer_email: 'github-actions[bot]@users.noreply.github.com'
+          # Push to branch
+          push: true
+          # Create pull request if push fails (optional)
+          pull: '--no-pull'
