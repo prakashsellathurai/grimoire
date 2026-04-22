@@ -7,9 +7,6 @@ This repository serves as a collection of my magic spells and a scratchbook.
 <h2>Table of Contents</h2>
 <div class="directory-tree" style="font-family: monospace; white-space: pre; overflow-x: auto;">
 <strong>grimoire/</strong><br/>
-├──&nbsp;📁&nbsp;.github/<br/>
-│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;workflows/<br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href=".github/workflows/update-toc.yml">update-toc.yml</a><br/>
 ├──&nbsp;📁&nbsp;competition_scripts/<br/>
 │&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;podRacing/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="competition_scripts/podRacing/AIracer-with-drift-control.py">AIracer-with-drift-control.py</a><br/>
@@ -39,10 +36,6 @@ This repository serves as a collection of my magic spells and a scratchbook.
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/gluecodes/pull-github.py">pull-github.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;numba/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;np.mean/<br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;.ipynb_checkpoints/<br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/.ipynb_checkpoints/debugnpmean-checkpoint.py">debugnpmean-checkpoint.py</a><br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/.ipynb_checkpoints/npmeanjit-checkpoint.ipynb">npmeanjit-checkpoint.ipynb</a><br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/.ipynb_checkpoints/scratchbook-checkpoint.ipynb">scratchbook-checkpoint.ipynb</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/benchmark-branching.py">benchmark-branching.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/benchmark.py">benchmark.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/debugnpmean.cover">debugnpmean.cover</a><br/>
