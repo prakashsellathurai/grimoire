@@ -4,7 +4,7 @@ This repository serves as a collection of my magic spells and a scratchbook.
 
  <!-- TOC_START -->
 
-<h2>🌳 Directory Tree</h2>
+<h2>Table of Contents</h2>
 <div class="directory-tree" style="font-family: monospace; white-space: pre; overflow-x: auto;">
 <strong>grimoire/</strong><br/>
 ├──&nbsp;📁&nbsp;.github/<br/>
@@ -69,6 +69,5 @@ This repository serves as a collection of my magic spells and a scratchbook.
 &nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;self/<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="tools/self/update_toc.py">update_toc.py</a><br/>
 </div>
-<p><em>Click on any 📄 file to view it</em></p>
 
 <!-- TOC_END -->
