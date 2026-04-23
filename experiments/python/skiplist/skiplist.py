@@ -5,33 +5,35 @@ class LinkedList:
         self.val = val
         self.next = next
         
-    def insert(self, val) -> Self:
-        if val < self.val:
-            return LinkedList(val, self)
+    def find(self, val):
+        cur = self
+        while cur is not None:
+            if cur.val == val:
+                return cur
+            cur = cur.next
+        return None
         
-        if self.next is None or val < self.next.val
-            self.next = LinkedList(val, self.next.val)
-        else:
-            self.next.insert(val)
-        return self
-    
-    def delete(self, val: int) -> Optional[Self]:
-        # Case 1: The value to delete is in the current (head) node
-        if self.val == val:
-            return self.next  # The next node becomes the new head
-            
-        # Case 2: The value is further down the list
-        current = self
-        while current.next is not None:
-            if current.next.val == val:
-                # Bypass the target node to delete it
-                current.next = current.next.next
-                return self
-            current = current.next
-            
-        return self # Value not found, return original list
-    
-        
+    def insert_after(self, target_val: int, new_val: int) -> bool:
+        """Finds target_val and inserts a new node with new_val after it."""
+        target_node = self.find(target_val)
+        if not target_node:
+            return False
+        # Create new node pointing to target's original next
+        new_node = LinkedList(new_val, target_node.next)
+        target_node.next = new_node
+        return True
+
+    def delete_after(self, target_val: int) -> bool:
+        """Finds target_val and deletes the node that follows it."""
+        target_node = self.find(target_val)
+        if not target_node:
+            return False
+        if not target_node.next:
+            target_node.next = None
+            return True
+        # Skip the next node
+        target_node.next = target_node.next.next
+        return True
         
         
         
