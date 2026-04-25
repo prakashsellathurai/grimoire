@@ -61,7 +61,8 @@ This repository serves as a collection of my magic spells and a scratchbook.
 &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="tools/scripts/autocommit.sh">autocommit.sh</a><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="tools/scripts/gitcommitandpush.sh">gitcommitandpush.sh</a><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="tools/scripts/llmscripthelper.sh">llmscripthelper.sh</a><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="tools/scripts/remove_empty_dirs.sh">remove_empty_dirs.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="tools/scripts/remove_empty_dirs.sh">remove_empty_dirs.sh</a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="tools/scripts/sync_fork.sh">sync_fork.sh</a><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;self/<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="tools/self/update_toc.py">update_toc.py</a><br/>
 </div>
