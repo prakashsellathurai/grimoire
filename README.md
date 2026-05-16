@@ -30,6 +30,8 @@ This repository serves as a collection of my magic spells and a scratchbook.
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/SIMD/swar_.py">swar_.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;VM/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/VM/virtualmachine.py">virtualmachine.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;cedardb/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/cedardb/dictionary-compression.py">dictionary-compression.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;dns/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/dns/domain-checker.py">domain-checker.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;gluecodes/<br/>
