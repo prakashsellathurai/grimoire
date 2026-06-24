@@ -56,8 +56,10 @@ This repository serves as a collection of my magic spells and a scratchbook.
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/scratchbook.ipynb">scratchbook.ipynb</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/trace_to_html.py">trace_to_html.py</a><br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/numba/np.mean/trace_to_html.py.html">trace_to_html.py.html</a><br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;skiplist/<br/>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/skiplist/skiplist.py">skiplist.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;📁&nbsp;skiplist/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/skiplist/skiplist.py">skiplist.py</a><br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;turtle/<br/>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="experiments/python/turtle/test_turtle.py">test_turtle.py</a><br/>
 ├──&nbsp;📁&nbsp;notes/<br/>
 │&nbsp;&nbsp;&nbsp;└──&nbsp;📁&nbsp;Modern&nbsp;Micro&nbsp;processors/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;📄&nbsp;<a href="notes/Modern%20Micro%20processors/notes.md">notes.md</a><br/>
